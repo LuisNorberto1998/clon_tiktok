@@ -1,3 +1,4 @@
+import 'package:clon_de_tiktok/pages/home_page.dart';
 import 'package:flutter/material.dart';
  
 void main() => runApp(MyApp());
@@ -6,17 +7,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Clon TikTok',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Clon Tiktok'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello Tiktok'),
-          ),
-        ),
-      ),
+      initialRoute: 'home',
+      routes: {
+        'home': (BuildContext context) => HomePage(),
+      },
     );
   }
 }
