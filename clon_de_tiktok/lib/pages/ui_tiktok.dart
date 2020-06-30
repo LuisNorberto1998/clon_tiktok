@@ -36,9 +36,15 @@ class UITikTok extends StatelessWidget {
 
   Widget _topMenu() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         _topNav(),
-        _interctionsButtons(),
+        Column(
+          children: <Widget>[
+            _interctionsButtons(),
+            _postData(),
+          ],
+        ),
       ],
     );
   }
@@ -82,39 +88,118 @@ class UITikTok extends StatelessWidget {
   }
 
   Widget _interctionsButtons() {
-    return Column(
-      children: <Widget>[
-        //Imagen de perfil de usuario
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25.0),
-            border: Border.all(
-              color: Colors.white,
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Column(
+        children: <Widget>[
+          //Imagen de perfil de usuario
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25.0),
+              border: Border.all(
+                color: Colors.white,
+              ),
+            ),
+            child: ClipOval(
+              child: Image.network(
+                'https://p16.muscdn.com/img/musically-maliva-obj/1664997143306245~c5_720x720.jpeg',
+                width: 50.0,
+                height: 50.0,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          child: ClipOval(
-            child: Image.network(
-              'https://p16.muscdn.com/img/musically-maliva-obj/1664997143306245~c5_720x720.jpeg',
-              width: 50.0,
-              height: 50.0,
-              fit: BoxFit.cover,
-            ),
+          //Icono de me gusta
+          SizedBox(height: 25.0),
+          Icon(Icons.favorite, color: Colors.red, size: 45.0),
+          SizedBox(height: 5.0),
+          Text('167.2K', style: TextStyle(fontSize: 10.0, color: Colors.white)),
+          //Icono de me comentarios
+          SizedBox(height: 20.0),
+          Icon(Icons.mode_comment, color: Colors.white, size: 40.0),
+          SizedBox(height: 5.0),
+          Text('5109', style: TextStyle(fontSize: 10.0, color: Colors.white)),
+          //Icono de me gusta
+          SizedBox(height: 20.0),
+          Icon(Icons.reply, color: Colors.white, size: 40.0),
+          SizedBox(height: 5.0),
+          Text('1252', style: TextStyle(fontSize: 10.0, color: Colors.white)),
+        ],
+      ),
+    );
+  }
+
+  Widget _postData() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 15.0, right: 8.0, bottom: 10.0),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text(
+                '@jirafita_oficial',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(width: 10.0),
+              Text('03-05', style: TextStyle(color: Colors.white54)),
+            ],
           ),
-        ),
-        //Icono de me gusta
-        Icon(
-          Icons.favorite,
-          color: Colors.red,
-          size: 50.0,
-        ),
-        Text(
-          '167.2K',
-          style: TextStyle(
-            fontSize: 10.0,
-            color: Colors.white,
+          SizedBox(height: 15.0),
+          Row(
+            children: <Widget>[
+              Flexible(
+                child: Column(
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        '¡Sid esta feliz el día de hoy!',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Icon(Icons.music_note, size: 20.0, color: Colors.white),
+                        SizedBox(width: 10.0),
+                        Text(
+                          'jirafita_oficila - audio sid',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Text(
+                          'Sonido original',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white24, width: 10.0),
+                    borderRadius: BorderRadius.circular(25.0)),
+                child: ClipOval(
+                  child: Image.network(
+                    'https://p16.muscdn.com/img/musically-maliva-obj/1664997143306245~c5_720x720.jpeg',
+                    width: 30.0,
+                    height: 30.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              )
+            ],
           ),
-        )
-      ],
+        ],
+      ),
     );
   }
 }
